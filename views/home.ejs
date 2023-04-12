@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            
+        }
+        #nav-bar{
+    margin-top: -50px;
+            height: 80px;
+            background-color: rgb(50, 140, 50);
+        }
+        #btn-container{
+            display: flex;
+            gap: 20px;
+            margin-left: 20%;
+            
+        }
+        #rect{
+            padding: 20px;
+            height: auto;
+
+            border-radius: 30px;
+            margin-top: 20px;
+            width: 40%;
+            text-align: center;
+            margin-left: 30%;
+            box-shadow: 3px 3px 10px black;
+        }
+        
+        .null{
+            color: yellow;
+        }
+        .green{
+            color: green;
+        }
+        .red{
+            color: red;
+        }
+        h1{
+          font-size: 50px;
+          font-weight: bolder;
+          color: aliceblue  ;
+        }
+        a{
+            font-size: 20px;
+            font-weight: bolder;
+            text-decoration: none;
+            border: 2px solid;
+            padding: 7px;
+            border-radius: 5px;
+            margin-top: 90px;
+            background-color: green;
+            color: aliceblue;
+        
+        }
+        button{
+            padding: 5px;
+            border-radius: 10px;
+            font-size: large;
+            font-weight: bold;
+            color: aliceblue;
+
+        }
+        .edit{
+            background-color: green;
+            border-color: green;
+            
+        }
+        .delete{
+            background-color: red;
+            border-color: red;
+        }
+        #a-container{
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav id="nav-bar">
+        <h1>User Details</h1>
+    </nav>
+    
+    <% for(let i = 0 ; i<readData.length ; i++){%>
+    <% let className="null" %>
+    <% if (readData[i].isPromoted==null){%>
+      <% className="null" %>
+     
+    <% } else if(readData[i].isPromoted){%>
+       <% className="green"%>
+   <% }else{%>
+   <% className="red"%>
+   <%} %>
+   <div id="rect">
+    <div  class=<%= className %> >
+        <h2  ><%= readData[i].name %></h2>
+        <h3 ><%= readData[i].email %></h3>
+    </div> 
+    <div id="btn-container">
+        <form method="POST" action="/users/<%= readData[i]._id %>?_method=PUT">
+            <button id="edit-<%= readData[i].name %>" type="submit" class="edit" >Promoted/Depromoted</button>
+        </form>
+        <form method="POST" action="/users/<%= readData[i]._id %>?_method=DELETE">
+            <button id="delete-<%= readData[i].name %>" class="delete">Delete</button>
+        </form>
+    </div>
+</div>
+    <%}%>
+
+
+   <div id="a-container"><a href="/form" >Add User</a></div> 
+
+
+   
+</body>
+</html>

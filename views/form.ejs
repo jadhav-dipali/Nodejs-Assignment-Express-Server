@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      form{
+        width: 90%;
+      }
+      input{
+        width: 100%;
+        height: 26px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+      label{
+        font-weight: bolder;
+        font-size: larger;
+      }
+      #btn{
+        height: 35px;
+       padding: 5px;
+       border-radius: 5px;
+       background-color: green;
+       border-color: green;
+       color: aliceblue;
+       font-size: larger;
+       font-weight: bolder;
+      }
+      #button{
+       text-align: center; 
+       
+      }
+      h1{
+        text-align: center;
+        margin-top: 90px;
+        text-shadow: 3px 3px 10px rgb(97, 95, 95);
+      }
+      #form-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid;
+        width: 40%;
+ 
+        margin-left: 30%;
+        padding: 40px 0px 40px 0px;
+
+      }
+    </style>
+</head>
+<body>
+  <h1><i>USER DETAILS</i></h1>
+  <div id="form-container">
+  <form method="post" action="/">
+    <label>Name</label><br>
+    <input type="text" name="name"><br><br>
+    <label for="">Email</label><br>
+    <input type="text" name="email"><br><br>
+    <div id="button">
+      <button id="btn">Submit</button>
+    </div>
+   
+  </form>  
+</div>
+</body>
+</html>
